@@ -15,10 +15,10 @@ const usePivotTile = ({ shadow }: Options = { shadow: 'dark' }) => {
     if (!ref.current) return;
 
     ref.current.style.transformStyle = 'preserve-3d';
-    ref.current.style.transitionProperty = 'transform box-shadow';
+    ref.current.style.transitionProperty = 'transform';
     ref.current.style.transitionDuration = '0.3s';
     ref.current.style.transitionTimingFunction = 'cubic-bezier(0.3, 1, 0.2, 1)';
-    ref.current.style.boxShadow = `0 2px 10px ${shadowColor.current}`;
+    ref.current.style.boxShadow = `0px 2px 10px 2px ${shadowColor.current}`;
 
     const onMove = (offsetX: number, offsetY: number) => {
       if (!ref.current) return;
@@ -41,14 +41,11 @@ const usePivotTile = ({ shadow }: Options = { shadow: 'dark' }) => {
           0.1 +
         0.1;
 
+      const xShadow = xOffsetPercentage * 15 + 2;
+      const yShadow = yOffsetPercentage * 15;
+      ref.current.style.boxShadow = `${xShadow}px ${yShadow}px 20px 2px ${shadowColor.current}`;
       ref.current.style.transform = `perspective(1000px) rotateX(${xDegRotation}deg) rotateY(${yDegRotation}deg)`;
       ref.current.style.backgroundImage = `linear-gradient(${angle}deg, rgba(230, 230, 230, ${intensity}) 0%, transparent 90%)`;
-    };
-
-    const onEnter = () => {
-      if (!ref.current) return;
-
-      ref.current.style.boxShadow = `0 10px 20px ${shadowColor.current}`;
     };
 
     const onLeave = () => {
@@ -56,20 +53,17 @@ const usePivotTile = ({ shadow }: Options = { shadow: 'dark' }) => {
 
       ref.current.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
       ref.current.style.backgroundImage = '';
-      ref.current.style.boxShadow = `0 2px 10px ${shadowColor.current}`;
+      ref.current.style.boxShadow = `0px 2px 10px 2px ${shadowColor.current}`;
     };
 
     ref.current.addEventListener('mousemove', (event: MouseEvent): any =>
       onMove(event.offsetX, event.offsetY)
     );
 
-    ref.current.addEventListener('mouseenter', (): any => onEnter());
-
     ref.current.addEventListener('mouseleave', (): any => onLeave());
 
     ref.current.addEventListener('touchstart', () => {
       preventScroll.current = true;
-      onEnter();
     });
 
     ref.current.addEventListener('touchmove', (event: TouchEvent) => {
