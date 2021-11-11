@@ -4,6 +4,8 @@ type Options = {
   shadow: 'light' | 'dark';
 };
 
+const PERSPECTIVE = '1000px';
+
 const usePivotTile = ({ shadow }: Options = { shadow: 'dark' }) => {
   const ref = React.useRef<HTMLDivElement>(null);
   const shadowColor = React.useRef(
@@ -15,8 +17,8 @@ const usePivotTile = ({ shadow }: Options = { shadow: 'dark' }) => {
     if (!ref.current) return;
 
     ref.current.style.transformStyle = 'preserve-3d';
-    ref.current.style.transitionProperty = 'transform';
-    ref.current.style.transitionDuration = '0.3s';
+    ref.current.style.transitionProperty = 'transform box-shadow';
+    ref.current.style.transitionDuration = '0.5s';
     ref.current.style.transitionTimingFunction = 'cubic-bezier(0.3, 1, 0.2, 1)';
     ref.current.style.boxShadow = `0px 2px 10px 2px ${shadowColor.current}`;
 
@@ -44,14 +46,14 @@ const usePivotTile = ({ shadow }: Options = { shadow: 'dark' }) => {
       const xShadow = xOffsetPercentage * 15 + 2;
       const yShadow = yOffsetPercentage * 15;
       ref.current.style.boxShadow = `${xShadow}px ${yShadow}px 20px 2px ${shadowColor.current}`;
-      ref.current.style.transform = `perspective(1000px) rotateX(${xDegRotation}deg) rotateY(${yDegRotation}deg)`;
+      ref.current.style.transform = `perspective(${PERSPECTIVE}) rotateX(${xDegRotation}deg) rotateY(${yDegRotation}deg)`;
       ref.current.style.backgroundImage = `linear-gradient(${angle}deg, rgba(230, 230, 230, ${intensity}) 0%, transparent 90%)`;
     };
 
     const onLeave = () => {
       if (!ref.current) return;
 
-      ref.current.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg)`;
+      ref.current.style.transform = `perspective(${PERSPECTIVE}) rotateX(0deg) rotateY(0deg)`;
       ref.current.style.backgroundImage = '';
       ref.current.style.boxShadow = `0px 2px 10px 2px ${shadowColor.current}`;
     };

@@ -1,20 +1,28 @@
 import type { NextPage } from 'next';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Hero from '../components/Hero';
+import AboutMe from '../components/AboutMe';
 
-const PlaceHolder = styled.div`
-  height: 1200px;
+const Section = styled.section<{ fullWidth?: boolean }>`
+  ${(props) =>
+    !props.fullWidth &&
+    css`
+      max-width: ${({ theme }) => theme.APP_MAX_WIDTH}px;
+      margin: 0 auto;
+    `}
+
+  margin-bottom: 60px;
 `;
 
 const Home: NextPage = () => {
   return (
     <>
-      <section>
+      <Section fullWidth>
         <Hero></Hero>
-      </section>
-      <section>
-        <PlaceHolder></PlaceHolder>
-      </section>
+      </Section>
+      <Section>
+        <AboutMe></AboutMe>
+      </Section>
     </>
   );
 };
