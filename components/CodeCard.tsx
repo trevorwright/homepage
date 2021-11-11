@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import usePivotTile from '../utilities/hooks/usePivotTile';
 import HtmlHighlighter from './HtmlHighlighter';
 
 const Window = styled.div`
@@ -6,6 +7,10 @@ const Window = styled.div`
   background: ${({ theme }) => theme.colors.grey};
   border-radius: 5px;
   user-select: none;
+
+  > * {
+    pointer-events: none;
+  }
 `;
 
 const Header = styled.div`
@@ -53,17 +58,21 @@ const data = {
   ],
 };
 
-const CodeCard = () => (
-  <Window>
-    <Header>
-      <Button color="red" />
-      <Button color="yellow" />
-      <Button color="green" />
-    </Header>
-    <Content>
-      <HtmlHighlighter data={data} />
-    </Content>
-  </Window>
-);
+const CodeCard = () => {
+  const ref = usePivotTile({ shadow: 'light' });
+
+  return (
+    <Window ref={ref}>
+      <Header>
+        <Button color="red" />
+        <Button color="yellow" />
+        <Button color="green" />
+      </Header>
+      <Content>
+        <HtmlHighlighter data={data} />
+      </Content>
+    </Window>
+  );
+};
 
 export default CodeCard;
