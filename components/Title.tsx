@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import styled from 'styled-components';
 import media from '../styles/media';
 
@@ -6,13 +6,15 @@ const Layout = styled.div`
   display: flex;
 `;
 
-const StyledTitle = styled.h2`
+const StyledTitle = styled.h2<{ light?: boolean }>`
   position: relative;
   display: inline-block;
   margin: 0 auto 42px auto;
   letter-spacing: 1px;
   font-size: 24px;
   text-align: center;
+  color: ${(props) =>
+    props.light ? props.theme.colors.white : props.theme.colors.grey};
 
   ${media.medium} {
     font-size: 36px;
@@ -40,14 +42,15 @@ const StyledTitle = styled.h2`
 
 type Props = {
   children: string;
+  light?: boolean;
 };
 
-const Title = ({ children: title, ...rest }: Props) => {
+const Title = ({ children: title, light, ...rest }: Props) => {
   const words = title.split(' ');
 
   return (
     <Layout>
-      <StyledTitle {...rest}>
+      <StyledTitle light={light} {...rest}>
         {words.map((word, index) => (
           <React.Fragment key={`${index}${word}`}>
             <span className={index === 0 ? 'highlight' : ''}>

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Title from './Title';
 
 const Section = styled.section`
-  padding: 60px 20px;
+  padding: 60px 20px 300px 20px;
   font-size: 18px;
   background: ${({ theme }) => theme.colors.grey};
   color: ${({ theme }) => theme.colors.white};
@@ -27,7 +27,7 @@ const Content = styled.div`
 const AboutMe = () => {
   return (
     <Section>
-      <Title>About</Title>
+      <Title light>About</Title>
       <Content>
         <p>
           I have been developing modern software solutions for the last decade

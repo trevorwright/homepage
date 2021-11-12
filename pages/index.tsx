@@ -8,6 +8,7 @@ const Home: NextPage = () => {
     <>
       <Hero></Hero>
       <AboutMe></AboutMe>
+      <Skills></Skills>
     </>
   );
 };

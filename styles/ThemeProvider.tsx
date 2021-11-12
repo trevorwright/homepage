@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { ThemeProvider } from 'styled-components';
 
 const APP_MAX_WIDTH = 1200;
