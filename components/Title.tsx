@@ -1,12 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
+import media from '../styles/media';
 
 const StyledTitle = styled.h2`
   position: relative;
   margin: 0 auto 42px auto;
   letter-spacing: 1px;
-  font-size: 36px;
+  font-size: 20px;
   text-align: center;
+
+  ${media.small} {
+    font-size: 24px;
+  }
+
+  ${media.medium} {
+    font-size: 36px;
+  }
 
   .highlight {
     color: ${({ theme }) => theme.colors.red};

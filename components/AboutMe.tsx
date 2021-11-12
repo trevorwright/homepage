@@ -1,25 +1,39 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import profileImg from '../public/images/profile.png';
+import media from '../styles/media';
 
 import Title from './Title';
 
 const Layout = styled.div`
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-gap: 20px;
+  grid-template-columns: 1fr;
+  padding: 0 20px;
+
+  ${media.medium} {
+    grid-template-columns: 1fr 3fr;
+  }
 `;
 
 const PositionedTitle = styled(Title)`
-  grid-column: 1 / span 2;
+  ${media.medium} {
+    grid-column: 1 / span 2;
+  }
 `;
 
 const ProfileContainer = styled.div`
   justify-self: center;
   align-self: start;
-  height: 200px;
-  width: 200px;
+  height: 150px;
+  width: 150px;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+
+  ${media.medium} {
+    height: 200px;
+    width: 200px;
+  }
 `;
 
 const ProfileImage = styled(Image).attrs({ height: 200, width: 200 })`
