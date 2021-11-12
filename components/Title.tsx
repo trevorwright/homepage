@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 
 const StyledTitle = styled.h2`
@@ -37,12 +38,12 @@ const Title = ({ children: title, ...rest }: Props) => {
   return (
     <StyledTitle {...rest}>
       {words.map((word, index) => (
-        <>
+        <React.Fragment key={`${index}${word}`}>
           <span className={index === 0 ? 'highlight' : ''}>
             {word.substring(0, 1)}
           </span>
           {word.substring(1)}
-        </>
+        </React.Fragment>
       ))}
     </StyledTitle>
   );

@@ -20,9 +20,7 @@ const Home: NextPage = () => {
       <Section fullWidth>
         <Hero></Hero>
       </Section>
-      <Section>
-        <AboutMe></AboutMe>
-      </Section>
+      <Section>{/* <AboutMe></AboutMe> */}</Section>
     </>
   );
 };

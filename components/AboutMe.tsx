@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import profileImg from '../public/images/profile.png';
-import usePivotTile from '../utilities/hooks/usePivotTile';
 
 import Title from './Title';
 
@@ -20,7 +19,7 @@ const ProfileContainer = styled.div`
   height: 200px;
   width: 200px;
   border-radius: 8px;
-  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4); */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 `;
 
 const ProfileImage = styled(Image).attrs({ height: 200, width: 200 })`
@@ -38,12 +37,10 @@ const Content = styled.div`
 `;
 
 const AboutMe = () => {
-  const ref = usePivotTile();
-
   return (
     <Layout>
       <PositionedTitle>About Me</PositionedTitle>
-      <ProfileContainer ref={ref}>
+      <ProfileContainer>
         <ProfileImage src={profileImg} alt="Head shot of Trevor"></ProfileImage>
       </ProfileContainer>
       <Content>

@@ -5,7 +5,6 @@ const INDENT_SIZE = 2;
 
 const Code = styled.code`
   font-family: monospace;
-  font-size: 18px;
   line-height: 1.5;
 
   .caret {

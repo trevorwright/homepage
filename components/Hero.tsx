@@ -1,9 +1,12 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import CodeCard from './CodeCard';
 import vector from '../public/images/vector.jpg';
+import media from '../styles/media';
 
 const Container = styled.div`
   position: relative;
+  display: flex;
+  align-items: center;
   background: url(${vector.src});
   background-size: cover;
   background-attachment: fixed;
@@ -26,13 +29,16 @@ const Container = styled.div`
 
 const Content = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  justify-items: center;
-
-  height: 100%;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 20px;
   max-width: ${({ theme }) => theme.APP_MAX_WIDTH}px;
   margin: 0 auto;
+  padding: 20px;
+
+  ${media.large} {
+    grid-template-rows: initial;
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 const Intro = styled.div`
@@ -45,13 +51,14 @@ const Intro = styled.div`
   }
 `;
 
-const Greeting = styled.h2`
-  text-transform: uppercase;
-`;
+const Greeting = styled.h2``;
 
 const Name = styled.h2`
-  font-size: 42px;
-  text-transform: uppercase;
+  font-size: 32px;
+
+  ${media.medium} {
+    font-size: 42px;
+  }
 `;
 
 const Blurb = styled.h4`

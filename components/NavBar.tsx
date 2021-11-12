@@ -68,8 +68,8 @@ const NavBar = () => (
       </ProfileLayout>
       <NavList>
         <NavItem>About</NavItem>
-        <NavItem>Experience</NavItem>
-        <NavItem>Skills</NavItem>
+        {/* <NavItem>Experience</NavItem>
+        <NavItem>Skills</NavItem> */}
       </NavList>
     </Nav>
   </NavContainer>
