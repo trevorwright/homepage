@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import styled from 'styled-components';
 import profileSm from '../public/images/profile-small.png';
+import media from '../styles/media';
 
 const NavContainer = styled.div`
   position: fixed;
@@ -31,24 +32,29 @@ const ProfileLayout = styled.div`
   align-items: center;
 `;
 
-const ProfilePicture = styled(Image).attrs({
-  src: profileSm,
-  height: '50',
-  width: '50',
-})`
+const ProfilePicture = styled.div`
+  display: none;
   border-radius: 50%;
+  margin-right: 16px;
+  overflow: hidden;
+
+  ${media.medium} {
+    display: initial;
+  }
 `;
 
 const Name = styled.div`
-  margin-left: 16px;
-
   em {
     color: ${({ theme }) => theme.colors.red};
   }
 `;
 
 const NavList = styled.ul`
-  display: flex;
+  display: none;
+
+  ${media.medium} {
+    display: flex;
+  }
 `;
 
 const NavItem = styled.li`
@@ -61,15 +67,17 @@ const NavBar = () => (
   <NavContainer>
     <Nav>
       <ProfileLayout>
-        <ProfilePicture />
+        <ProfilePicture>
+          <Image src={profileSm} height="50" width="50" alt=""></Image>
+        </ProfilePicture>
         <Name>
           Trevor <em>Wright</em>
         </Name>
       </ProfileLayout>
       <NavList>
         <NavItem>About</NavItem>
-        {/* <NavItem>Experience</NavItem>
-        <NavItem>Skills</NavItem> */}
+        <NavItem>Experience</NavItem>
+        <NavItem>Skills</NavItem>
       </NavList>
     </Nav>
   </NavContainer>
