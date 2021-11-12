@@ -22,7 +22,7 @@ const THEME = {
     cyan: '#56b6c2',
     grey: '#282c34',
     lightGrey: '#abb2bf',
-    white: '#F1FAEE',
+    white: '#faf1ee',
     macRed: '#ED6251',
     macYellow: '#F6B841',
     macGreen: '#53BD47',
