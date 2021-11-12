@@ -91,7 +91,7 @@ const data = {
 };
 
 const CodeCard = () => {
-  const ref = usePivotTile({ shadow: 'light' });
+  const ref = usePivotTile();
 
   return (
     <Window ref={ref}>

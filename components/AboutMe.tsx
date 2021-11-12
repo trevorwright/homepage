@@ -1,48 +1,22 @@
 import styled from 'styled-components';
-import Image from 'next/image';
-import profileImg from '../public/images/profile.png';
-import media from '../styles/media';
-
 import Title from './Title';
 
-const Layout = styled.div`
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: 1fr;
-  padding: 0 20px;
-
-  ${media.medium} {
-    grid-template-columns: 1fr 3fr;
-  }
-`;
-
-const PositionedTitle = styled(Title)`
-  ${media.medium} {
-    grid-column: 1 / span 2;
-  }
-`;
-
-const ProfileContainer = styled.div`
-  justify-self: center;
-  align-self: start;
-  height: 150px;
-  width: 150px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-
-  ${media.medium} {
-    height: 200px;
-    width: 200px;
-  }
-`;
-
-const ProfileImage = styled(Image).attrs({ height: 200, width: 200 })`
-  border-radius: 8px;
+const Section = styled.section`
+  padding: 60px 20px;
+  font-size: 18px;
+  background: ${({ theme }) => theme.colors.grey};
+  color: ${({ theme }) => theme.colors.white};
 `;
 
 const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   p {
-    line-height: 1.3;
+    line-height: 1.5;
+    max-width: 800px;
   }
 
   p:not(:last-child) {
@@ -52,11 +26,8 @@ const Content = styled.div`
 
 const AboutMe = () => {
   return (
-    <Layout>
-      <PositionedTitle>About Me</PositionedTitle>
-      <ProfileContainer>
-        <ProfileImage src={profileImg} alt="Head shot of Trevor"></ProfileImage>
-      </ProfileContainer>
+    <Section>
+      <Title>About</Title>
       <Content>
         <p>
           I have been developing modern software solutions for the last decade
@@ -81,7 +52,7 @@ const AboutMe = () => {
           cooking as a hobby and as a means of avoiding starvation.
         </p>
       </Content>
-    </Layout>
+    </Section>
   );
 };
 

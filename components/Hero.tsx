@@ -1,18 +1,19 @@
 import styled from 'styled-components';
 import CodeCard from './CodeCard';
-import vector from '../public/images/vector.jpg';
+import geo from '../public/images/geometric.jpg';
 import media from '../styles/media';
 
-const Container = styled.div`
+const Container = styled.section`
   position: relative;
   display: flex;
   align-items: center;
-  background: url(${vector.src});
+  background: url(${geo.src});
   background-size: cover;
   background-attachment: fixed;
   height: calc(100vh - ${({ theme }) => theme.NAV_BAR_HEIGHT}px);
+  max-height: 800px;
   z-index: 0;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.grey};
 
   &::after {
     position: absolute;
@@ -22,8 +23,8 @@ const Container = styled.div`
     left: 0;
     right: 0;
     z-index: -1;
-    background: black;
-    opacity: 0.5;
+    background: ${({ theme }) => theme.colors.white};
+    opacity: 0.6;
   }
 `;
 
@@ -38,6 +39,7 @@ const Content = styled.div`
   ${media.large} {
     grid-template-rows: initial;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
   }
 `;
 

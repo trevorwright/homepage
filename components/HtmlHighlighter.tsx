@@ -4,8 +4,9 @@ import styled from 'styled-components';
 const INDENT_SIZE = 2;
 
 const Code = styled.code`
-  font-family: monospace;
+  font-family: 'Source Code Pro', monospace;
   line-height: 1.5;
+  color: ${({ theme }) => theme.colors.white};
 
   .caret {
     color: ${({ theme }) => theme.colors.blue};

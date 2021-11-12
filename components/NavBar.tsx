@@ -1,6 +1,4 @@
-import Image from 'next/image';
 import styled from 'styled-components';
-import profileSm from '../public/images/profile-small.png';
 import media from '../styles/media';
 
 const NavContainer = styled.div`
@@ -32,20 +30,17 @@ const ProfileLayout = styled.div`
   align-items: center;
 `;
 
-const ProfilePicture = styled.div`
-  display: none;
-  border-radius: 50%;
-  margin-right: 16px;
-  overflow: hidden;
-
-  ${media.medium} {
-    display: initial;
-  }
-`;
-
 const Name = styled.div`
   em {
     color: ${({ theme }) => theme.colors.red};
+  }
+`;
+
+const Logo = styled.div`
+  color: ${({ theme }) => theme.colors.red};
+
+  .syntax {
+    color: ${({ theme }) => theme.colors.blue};
   }
 `;
 
@@ -67,12 +62,11 @@ const NavBar = () => (
   <NavContainer>
     <Nav>
       <ProfileLayout>
-        <ProfilePicture>
-          <Image src={profileSm} height="50" width="50" alt=""></Image>
-        </ProfilePicture>
-        <Name>
-          Trevor <em>Wright</em>
-        </Name>
+        <Logo>
+          <span className="syntax">&lt;</span>
+          <span>TW</span>
+          <span className="syntax">&nbsp;/&gt;</span>
+        </Logo>
       </ProfileLayout>
       <NavList>
         <NavItem>About</NavItem>
