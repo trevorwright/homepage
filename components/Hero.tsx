@@ -35,6 +35,13 @@ const Content = styled.div`
   max-width: ${({ theme }) => theme.APP_MAX_WIDTH}px;
   margin: 0 auto;
   padding: 20px;
+  /* We add some negative margin for mobile devices. Because the code window is visually
+  heavier than the text content, this helps it visually feel more centered */
+  margin-top: -50px;
+
+  ${media.small} {
+    margin-top: 0;
+  }
 
   ${media.large} {
     grid-template-rows: initial;
