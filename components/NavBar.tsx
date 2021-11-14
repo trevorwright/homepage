@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import media from '../styles/media';
 
 const NavContainer = styled.div`
@@ -30,17 +32,20 @@ const ProfileLayout = styled.div`
   align-items: center;
 `;
 
-const Name = styled.div`
-  em {
-    color: ${({ theme }) => theme.colors.red};
-  }
-`;
-
 const Logo = styled.div`
   color: ${({ theme }) => theme.colors.red};
 
   .syntax {
     color: ${({ theme }) => theme.colors.blue};
+  }
+`;
+
+const NavHamburger = styled(FontAwesomeIcon).attrs({
+  // size: '2x',
+  icon: faBars,
+})`
+  ${media.medium} {
+    display: none;
   }
 `;
 
@@ -73,6 +78,7 @@ const NavBar = () => (
         <NavItem>Experience</NavItem>
         <NavItem>Skills</NavItem>
       </NavList>
+      <NavHamburger></NavHamburger>
     </Nav>
   </NavContainer>
 );
