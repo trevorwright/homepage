@@ -32,7 +32,7 @@ const usePivotTile = ({ shadow }: Options = { shadow: 'dark' }) => {
     ref.current.style.transitionProperty = 'transform box-shadow';
     ref.current.style.transitionDuration = '0.5s';
     ref.current.style.transitionTimingFunction = 'cubic-bezier(0.3, 1, 0.2, 1)';
-    ref.current.style.boxShadow = `0px 2px 10px 2px ${shadowColor.current}`;
+    ref.current.style.boxShadow = `2px 2px 10px 2px ${shadowColor.current}`;
 
     const onMove = (offsetX: number, offsetY: number) => {
       if (!ref.current) return;
@@ -56,7 +56,7 @@ const usePivotTile = ({ shadow }: Options = { shadow: 'dark' }) => {
         0.1;
 
       const xShadow = xOffsetPercentage * 15 + 2;
-      const yShadow = yOffsetPercentage * 15;
+      const yShadow = yOffsetPercentage * 15 + 2;
       ref.current.style.boxShadow = `${xShadow}px ${yShadow}px 20px 2px ${shadowColor.current}`;
       ref.current.style.transform = `perspective(${PERSPECTIVE}) rotateX(${xDegRotation}deg) rotateY(${yDegRotation}deg)`;
       ref.current.style.backgroundImage = `linear-gradient(${angle}deg, rgba(230, 230, 230, ${intensity}) 0%, transparent 90%)`;
@@ -67,7 +67,7 @@ const usePivotTile = ({ shadow }: Options = { shadow: 'dark' }) => {
 
       ref.current.style.transform = `perspective(${PERSPECTIVE}) rotateX(0deg) rotateY(0deg)`;
       ref.current.style.backgroundImage = '';
-      ref.current.style.boxShadow = `0px 2px 10px 2px ${shadowColor.current}`;
+      ref.current.style.boxShadow = `2px 2px 10px 2px ${shadowColor.current}`;
     };
 
     ref.current.addEventListener('mousemove', (event: MouseEvent): any =>

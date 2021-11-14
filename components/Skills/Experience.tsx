@@ -5,11 +5,11 @@ import media from '../../styles/media';
 const Container = styled.div`
   display: grid;
   grid-template-columns: auto 1fr;
-  grid-column-gap: 8px;
+  grid-column-gap: 16px;
   grid-template-areas:
     'image header'
     'content content';
-  padding: 12px;
+  padding: 20px 20px;
 
   ${media.small} {
     grid-column-gap: 20px;
@@ -30,7 +30,7 @@ const LogoWrapper = styled.div`
   width: 35px;
   border-radius: 50%;
   overflow: hidden;
-  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.4);
 
   ${media.small} {
     height: 50px;
@@ -92,6 +92,7 @@ const RoleInformation = styled.div`
   h4,
   h5,
   h6 {
+    color: ${({ theme }) => theme.colors.red};
     margin-bottom: 8px;
     font-weight: 700;
   }

@@ -10,8 +10,8 @@ const Layout = styled.section`
   grid-template-columns: 1fr;
   margin: 0 auto;
   margin-top: -180px;
-  padding: 0 8px;
-  max-width: 800px;
+  padding: 0 12px;
+  max-width: 1000px;
   margin-bottom: 44px;
 
   ${media.small} {
@@ -24,7 +24,7 @@ const Container = styled.div`
   background: ${({ theme }) => theme.colors.white};
   border: 1px solid ${({ theme }) => theme.colors.lightGrey};
   border-radius: 5px;
-  box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.4);
 
   > *:not(:last-child) {
     border-bottom: 1px solid ${({ theme }) => theme.colors.lightGrey};
@@ -106,7 +106,7 @@ const Skills = () => (
         </p>
       </Experience>
       <Experience
-        roleTitle="Full Stack Web Developer"
+        roleTitle="Full Stack Developer"
         employer="Prodigy Education"
         startDate="February 2017"
         endDate="October 2017"
@@ -126,7 +126,7 @@ const Skills = () => (
         </p>
       </Experience>
       <Experience
-        roleTitle="Full Stack Applications Developer"
+        roleTitle="Full Stack Developer"
         employer="ABELSoft"
         startDate="May 2011"
         endDate="February 2017"

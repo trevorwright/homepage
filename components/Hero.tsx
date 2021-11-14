@@ -7,7 +7,7 @@ const Container = styled.section`
   position: relative;
   display: flex;
   align-items: center;
-  background: url(${geo.src});
+  background-image: url(${geo.src});
   background-size: cover;
   background-attachment: fixed;
   height: calc(100vh - ${({ theme }) => theme.NAV_BAR_HEIGHT}px);
@@ -25,6 +25,10 @@ const Container = styled.section`
     z-index: -1;
     background: ${({ theme }) => theme.colors.white};
     opacity: 0.6;
+  }
+
+  ${media.small} {
+    background-attachment: fixed;
   }
 `;
 

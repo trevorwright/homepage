@@ -4,7 +4,9 @@ import styled from 'styled-components';
 import NavBar from './NavBar';
 
 const Container = styled.div`
-  margin-top: ${({ theme }) => theme.NAV_BAR_HEIGHT}px;
+  > *:first-child {
+    padding-top: ${({ theme }) => theme.NAV_BAR_HEIGHT}px;
+  }
 `;
 
 type Props = {
