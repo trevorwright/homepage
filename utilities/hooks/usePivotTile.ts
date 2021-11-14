@@ -6,6 +6,18 @@ type Options = {
 
 const PERSPECTIVE = '1000px';
 
+const getTouchCoordsByEvent = (event: TouchEvent) => {
+  const rect = (event.target as HTMLElement).getBoundingClientRect();
+
+  const offsetX = event.touches[0].clientX - rect.left;
+  const offsetY = event.touches[0].clientY - rect.top;
+
+  return {
+    x: offsetX,
+    y: offsetY,
+  };
+};
+
 const usePivotTile = ({ shadow }: Options = { shadow: 'dark' }) => {
   const ref = React.useRef<HTMLDivElement>(null);
   const shadowColor = React.useRef(
@@ -64,8 +76,11 @@ const usePivotTile = ({ shadow }: Options = { shadow: 'dark' }) => {
 
     ref.current.addEventListener('mouseleave', (): any => onLeave());
 
-    ref.current.addEventListener('touchstart', () => {
+    ref.current.addEventListener('touchstart', (event: TouchEvent) => {
       preventScroll.current = true;
+
+      const coords = getTouchCoordsByEvent(event);
+      onMove(coords.x, coords.y);
     });
 
     ref.current.addEventListener('touchmove', (event: TouchEvent) => {
@@ -73,12 +88,8 @@ const usePivotTile = ({ shadow }: Options = { shadow: 'dark' }) => {
         event.preventDefault();
       }
 
-      const rect = (event.target as HTMLElement).getBoundingClientRect();
-
-      const offsetX = event.touches[0].clientX - rect.left;
-      const offsetY = event.touches[0].clientY - rect.top;
-
-      onMove(offsetX, offsetY);
+      const coords = getTouchCoordsByEvent(event);
+      onMove(coords.x, coords.y);
     });
 
     ref.current.addEventListener('touchend', () => {
