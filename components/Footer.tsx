@@ -44,12 +44,8 @@ const CraftedBy = styled.h4`
     color: ${({ theme }) => theme.colors.blue};
   }
 
-  ${media.medium} {
-    display: flex;
-
-    > *:not(:last-child) {
-      margin-right: 8px;
-    }
+  ${media.small} {
+    margin-bottom: 0;
   }
 `;
 
