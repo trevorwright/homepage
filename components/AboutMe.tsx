@@ -27,7 +27,9 @@ const Content = styled.div`
 const AboutMe = () => {
   return (
     <Section>
-      <Title light>About</Title>
+      <Title light id="about">
+        About
+      </Title>
       <Content>
         <p>
           I have been developing modern software solutions for the last decade

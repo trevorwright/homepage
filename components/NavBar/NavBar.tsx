@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
-import media from '../styles/media';
+import media from '../../styles/media';
+import Navigation from './Navigation';
 
 const NavContainer = styled.div`
   position: fixed;
@@ -40,29 +39,6 @@ const Logo = styled.div`
   }
 `;
 
-const NavHamburger = styled(FontAwesomeIcon).attrs({
-  // size: '2x',
-  icon: faBars,
-})`
-  ${media.medium} {
-    display: none;
-  }
-`;
-
-const NavList = styled.ul`
-  display: none;
-
-  ${media.medium} {
-    display: flex;
-  }
-`;
-
-const NavItem = styled.li`
-  &:not(:last-child) {
-    margin-right: 32px;
-  }
-`;
-
 const NavBar = () => (
   <NavContainer>
     <Nav>
@@ -73,12 +49,7 @@ const NavBar = () => (
           <span className="syntax">&nbsp;/&gt;</span>
         </Logo>
       </ProfileLayout>
-      <NavList>
-        <NavItem>About</NavItem>
-        <NavItem>Experience</NavItem>
-        <NavItem>Skills</NavItem>
-      </NavList>
-      <NavHamburger></NavHamburger>
+      <Navigation></Navigation>
     </Nav>
   </NavContainer>
 );

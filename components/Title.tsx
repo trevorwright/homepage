@@ -43,7 +43,7 @@ const StyledTitle = styled.h2<{ light?: boolean }>`
 type Props = {
   children: string;
   light?: boolean;
-};
+} & React.HTMLAttributes<HTMLElement>;
 
 const Title = ({ children: title, light, ...rest }: Props) => {
   const words = title.split(' ');

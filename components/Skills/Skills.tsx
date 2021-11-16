@@ -33,7 +33,9 @@ const Container = styled.div`
 
 const Skills = () => (
   <Layout>
-    <Title light>Experience</Title>
+    <Title light id="experience">
+      Experience
+    </Title>
     <Container>
       <Experience
         roleTitle="Front-End Architect"
