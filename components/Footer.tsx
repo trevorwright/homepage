@@ -57,7 +57,7 @@ const ContactLayout = styled.div`
 
 const ContactIcon = styled(FontAwesomeIcon).attrs({ size: '2x' })`
   transition: color 0.3s ease;
-  cursor: pointer;
+  color: ${({ theme }) => theme.colors.white};
 
   &:hover {
     color: ${({ theme }) => theme.colors.blue};
@@ -76,9 +76,27 @@ const Footer = () => (
         </div>
       </CraftedBy>
       <ContactLayout>
-        <ContactIcon icon={faLinkedin as IconProp}></ContactIcon>
-        <ContactIcon icon={faTwitterSquare as IconProp} size="2x"></ContactIcon>
-        <ContactIcon icon={faEnvelopeSquare} size="2x"></ContactIcon>
+        <a
+          href="https://www.linkedin.com/in/trevor-d-wright/"
+          aria-label="Visit Trevor's LinkedIn profile"
+        >
+          <ContactIcon icon={faLinkedin as IconProp}></ContactIcon>
+        </a>
+        <a
+          href="https://twitter.com/tdwright_"
+          aria-label="Visit Trevor's Twitter profile"
+        >
+          <ContactIcon
+            icon={faTwitterSquare as IconProp}
+            size="2x"
+          ></ContactIcon>
+        </a>
+        <a
+          href="mailto:wright22@gmail.com"
+          aria-label="Send an e-mail to Trevor"
+        >
+          <ContactIcon icon={faEnvelopeSquare} size="2x"></ContactIcon>
+        </a>
       </ContactLayout>
     </Layout>
   </Container>
