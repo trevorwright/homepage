@@ -102,7 +102,7 @@ const MobileNavMenu = () => {
               <Link
                 to={item.to}
                 offset={-100}
-                duration="500"
+                duration={500}
                 smooth={true}
                 onClick={() => setOpen(false)}
               >

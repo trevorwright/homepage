@@ -40,10 +40,6 @@ const CraftedBy = styled.h4`
     color: ${({ theme }) => theme.colors.red};
   }
 
-  .highlight-blue {
-    color: ${({ theme }) => theme.colors.blue};
-  }
-
   ${media.small} {
     margin-bottom: 0;
   }
@@ -71,9 +67,7 @@ const Footer = () => (
         <div>
           Handcrafted by Trevor <span className="highlight-red">Wright</span>
         </div>
-        <div>
-          <span className="highlight-blue">©</span>&nbsp;2021
-        </div>
+        <div>©&nbsp;2021</div>
       </CraftedBy>
       <ContactLayout>
         <a
