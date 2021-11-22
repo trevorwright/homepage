@@ -1,21 +1,19 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-scroll';
 import media from '../../styles/media';
 
-const DisplayOnMobile = styled.div`
-  ${media.medium} {
-    display: none;
-  }
+const Layout = styled.div`
+  display: flex;
+  align-items: center;
+  height: 100%;
 `;
 
-const DisplayOnDesktop = styled.div`
-  display: none;
-
+const MobileMenu = styled.div`
   ${media.medium} {
-    display: initial;
+    display: none;
   }
 `;
 
@@ -33,13 +31,54 @@ const NavHamburger = styled.button`
   }
 `;
 
+const HamburgerIconAnimation = styled.div<{ open: boolean }>`
+  display: grid;
+  height: 100%;
+  justify-items: center;
+  align-items: center;
+
+  > * {
+    transition: opacity 300ms cubic-bezier(0.075, 0.82, 0.165, 1);
+    grid-row: 1;
+    grid-column: 1;
+  }
+
+  .open {
+    opacity: 0;
+    ${(props) =>
+      !props.open &&
+      css`
+        opacity: 1;
+      `}
+  }
+
+  .close {
+    opacity: 0;
+    ${(props) =>
+      props.open &&
+      css`
+        opacity: 1;
+      `}
+  }
+`;
+
 const MenuList = styled.ul<{ open: boolean }>`
   position: fixed;
   top: ${({ theme }) => theme.NAV_BAR_HEIGHT}px;
   left: 0;
   right: 0;
-  display: ${(props) => (props.open ? 'block' : 'none')};
   background: ${({ theme }) => theme.colors.grey};
+  opacity: 0;
+  transform: scaleY(0);
+  transition: all 300ms ease-in-out;
+  transform-origin: top;
+
+  ${(props) =>
+    props.open &&
+    css`
+      transform: scaleY(1);
+      opacity: 1;
+    `};
 `;
 
 const MenuItem = styled.li`
@@ -67,14 +106,38 @@ const MenuItem = styled.li`
 `;
 
 const NavList = styled.ul`
-  display: flex;
+  display: none;
+  cursor: pointer;
+
+  ${media.medium} {
+    display: flex;
+  }
 `;
 
 const NavItem = styled.li`
-  cursor: pointer;
+  position: relative;
 
   &:not(:last-child) {
     margin-right: 32px;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: ${({ theme }) => theme.colors.blue};
+    transition: all 300ms ease;
+    transform: scaleX(0);
+    opacity: 0;
+    transform-origin: center;
   }
 `;
 
@@ -87,14 +150,18 @@ const MobileNavMenu = () => {
   const [open, setOpen] = React.useState(false);
 
   return (
-    <div>
-      <DisplayOnMobile>
+    <Layout>
+      <MobileMenu>
         <NavHamburger onClick={() => setOpen(!open)}>
-          {open ? (
-            <FontAwesomeIcon icon={faTimes}></FontAwesomeIcon>
-          ) : (
-            <FontAwesomeIcon icon={faBars}></FontAwesomeIcon>
-          )}
+          <HamburgerIconAnimation open={open}>
+            <>
+              <FontAwesomeIcon
+                className="close"
+                icon={faTimes}
+              ></FontAwesomeIcon>
+              <FontAwesomeIcon className="open" icon={faBars}></FontAwesomeIcon>
+            </>
+          </HamburgerIconAnimation>
         </NavHamburger>
         <MenuList open={open}>
           {NAV_ITEMS.map((item) => (
@@ -111,19 +178,17 @@ const MobileNavMenu = () => {
             </MenuItem>
           ))}
         </MenuList>
-      </DisplayOnMobile>
-      <DisplayOnDesktop>
-        <NavList>
-          {NAV_ITEMS.map((item) => (
-            <NavItem key={item.title}>
-              <Link to={item.to} offset={-100} duration="500" smooth={true}>
-                {item.title}
-              </Link>
-            </NavItem>
-          ))}
-        </NavList>
-      </DisplayOnDesktop>
-    </div>
+      </MobileMenu>
+      <NavList>
+        {NAV_ITEMS.map((item) => (
+          <NavItem key={item.title}>
+            <Link to={item.to} offset={-100} duration={500} smooth={true}>
+              {item.title}
+            </Link>
+          </NavItem>
+        ))}
+      </NavList>
+    </Layout>
   );
 };
 
