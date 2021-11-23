@@ -97,6 +97,10 @@ const RoleInformation = styled.div`
     font-weight: 700;
   }
 
+  ul {
+    margin-bottom: 16px;
+  }
+
   li {
     list-style-type: disc;
     list-style-position: inside;

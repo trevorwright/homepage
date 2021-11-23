@@ -49,18 +49,20 @@ const Skills = () => (
           direction across the company. We ensure secure and scalable solutions
           as well as work to set standards and best practices all our products.
         </p>
-        <h4>Internal Design System</h4>
+        <h4>Highlights</h4>
         <ul>
-          <li>Owner of the system</li>
-          <li>Being the resident React expert</li>
+          <li>Owner of internal design system</li>
+          <li>Technical lead of mobile market initiative</li>
+          <li>Resident React expert and consultant</li>
           <li>Coaching and mentoring team members across the company</li>
-          <li>
-            Ensuring a light weight and highly composable component library
-          </li>
           <li>Providing appropriate tooling to teams for rapid execution</li>
           <li>Driving accessibility across our products</li>
-          <li>Building a inner source community around the design-system</li>
         </ul>
+        <h4>Technologies</h4>
+        <p>
+          React, Redux, JavaScript, TypeScript, Webpack, Rollup, Next.js,
+          Styled-Components, SCSS, GraphQL, Node, React Native
+        </p>
       </Experience>
       <Experience
         roleTitle="Sr. Engineering Manager"
@@ -71,19 +73,25 @@ const Skills = () => (
       >
         <p>
           Worked closely with product and design leads to set the direction of
-          our educator platforms by setting direction, prioritization, planning
-          and execution. Lead up to 4 product teams in a technical along with
-          people management which included managing both individual contributors
-          and other managers.
+          our educator platforms. Technically lead teams through deliver along
+          with facilitating cross team and department communication. I directly
+          managed both engineers and other managers on a collection of teams.
         </p>
-        <h4>Key highlights</h4>
+        <h4>Highlights</h4>
         <ul>
-          <li>Technically led rebranding the company and all products</li>
-          <li>Launched internal design-system</li>
-          <li>Supported launch of co-op program</li>
+          <li>Hired and led multiple execution teams</li>
+          <li>Managed short and long term technical direction</li>
           <li>Launched accelerator program</li>
+          <li>Launched internal design-system</li>
+          <li>Technically led rebranding the company and all products</li>
           <li>Ran internal front-end meetups</li>
+          <li>Supported launch of co-op program</li>
         </ul>
+        <h4>Technologies</h4>
+        <p>
+          React, Redux, JavaScript, TypeScript, Webpack, Rollup, Next.js,
+          Styled-Components, SCSS, GraphQL, Node, BackboneJS
+        </p>
       </Experience>
       <Experience
         roleTitle="Team Lead"
@@ -93,18 +101,24 @@ const Skills = () => (
         logo={prodigyLogo}
       >
         <p>
-          Working as apart of a team to continually deliver high quality and
-          high impact features for our customers using modern technologies such
-          as React, Styled-Components, Webpack, Babel, GraphQL and Apollo.
+          Worked as the lead of a product delivery team shipping high quality
+          and high impact features for our customers. The primary
+          responsibilities of the role were split between writing code and
+          managing the team and its members. Additionally contributed to the
+          scaling of the engineering department as a whole.
         </p>
+        <h4>Highlights</h4>
+        <ul>
+          <li>Lead the adoption of React in the company</li>
+          <li>Lead of accelerator team</li>
+          <li>Created an internal Front-End community</li>
+          <li>Supported launch of new office location</li>
+          <li>Led interviewing of engineers</li>
+        </ul>
+        <h4>Technologies</h4>
         <p>
-          Leading the transition of products from BackboneJS to React along with
-          front-end initiatives including patterns, best practices and team
-          education.
-        </p>
-        <p>
-          Managing direct reports with communication, coaching, mentorship,
-          career development, regular 1 on 1 meetings and performance reviews.
+          React, JavaScript, Webpack, Styled-Components, SCSS, GraphQL, Node,
+          BackboneJS, PHP, Gulp
         </p>
       </Experience>
       <Experience

@@ -37,7 +37,7 @@ const AboutMe = () => {
           and leadership play a huge part in my career, helping team members
           fine tune and advance their skill set. Learning is a massive passion
           as there is always a new approach, point of view, or technology to
-          improve the work you do.
+          improve the work we do.
         </p>
 
         <p>
@@ -45,13 +45,6 @@ const AboutMe = () => {
           amazing work more efficiently than ever and find new solutions for the
           problems we face. The world of web technologies is rapidly evolving
           and I strive to stay on the cutting edge of it.
-        </p>
-
-        <p>
-          Outside of work I love spending time with my beautiful wife, embarking
-          on any adventure we can find together. I enjoy the Canadian summers on
-          the golf course, and the winters on the ski slopes. I also love
-          cooking as a hobby and as a means of avoiding starvation.
         </p>
       </Content>
     </Section>
