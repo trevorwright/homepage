@@ -12,6 +12,10 @@ const Home: NextPage = () => {
         <title>Trevor Wright</title>
         <meta property="og:type" content="profile"></meta>
         <meta property="og:title" content="Leader and Web Developer"></meta>
+        <meta
+          property="og:description"
+          content="A web developer passionate about growing teams and individuals"
+        ></meta>
         <meta property="og:url" content="https://trevorwright.ca"></meta>
         <meta property="og:image" content="/images/profile.png"></meta>
         <meta property="profile:first_name" content="Trevor"></meta>
